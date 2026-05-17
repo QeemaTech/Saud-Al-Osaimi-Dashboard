@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+    margin: 0;
+  }
+
+  body {
+    @apply font-sans antialiased text-slate-800 bg-slate-50;
+  }
+
+  ::selection {
+    @apply bg-brand-200 text-brand-900;
+  }
+}
+
+@layer components {
+  .mesh-bg {
+    @apply relative overflow-hidden bg-slate-950;
+    background-image:
+      radial-gradient(at 20% 30%, rgba(16, 185, 129, 0.18) 0, transparent 50%),
+      radial-gradient(at 80% 10%, rgba(59, 130, 246, 0.12) 0, transparent 45%),
+      radial-gradient(at 50% 80%, rgba(16, 185, 129, 0.1) 0, transparent 50%);
+  }
+
+  .mesh-bg-light {
+    @apply relative overflow-hidden bg-slate-50;
+    background-image:
+      radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.08) 0, transparent 45%),
+      radial-gradient(at 100% 0%, rgba(99, 102, 241, 0.06) 0, transparent 40%),
+      radial-gradient(at 50% 100%, rgba(16, 185, 129, 0.05) 0, transparent 50%);
+  }
+
+  .glass {
+    @apply border border-white/20 bg-white/70 shadow-card backdrop-blur-xl;
+  }
+
+  .glass-dark {
+    @apply border border-white/10 bg-slate-900/60 shadow-lg backdrop-blur-xl;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-brand-400 via-emerald-300 to-teal-200 bg-clip-text text-transparent;
+  }
+
+  .nav-link {
+    @apply rounded-full px-3 py-1.5 text-sm font-medium text-slate-600 transition-all duration-200;
+  }
+
+  .nav-link:hover {
+    @apply bg-white/80 text-slate-900 shadow-sm;
+  }
+
+  .nav-link-active {
+    @apply bg-brand-600 text-white shadow-md shadow-brand-600/25;
+  }
+
+  .nav-link-active:hover {
+    @apply bg-brand-500 text-white;
+  }
+}
+
+@layer utilities {
+  .animate-in-view {
+    animation: fadeUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+}
